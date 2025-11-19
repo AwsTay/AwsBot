@@ -1,2 +1,3 @@
 AwsBot is a robust and scalable Python script built on the Pywikibot framework. Its primary mission is to improve the internal structure and navigational quality of articles on the Arabic Wikipedia (ar.wikipedia.org) by automatically adding and formatting the 'See Also' section, ensuring zero red links and adhering to strict style guidelines.
+
 بوت ​AwsBot هو سكريبت بايثون قوي وقابل للتطوير مبني على إطار عمل Pywikibot. تتمثل مهمته الأساسية في تحسين البنية الداخلية وجودة التنقل في مقالات ويكيبيديا العربية (ar.wikipedia.org) عن طريق إضافة وتنسيق قسم "انظر أيضًا" تلقائيًا، مما يضمن عدم وجود أي وصلات حمراء.
