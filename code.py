@@ -5,6 +5,7 @@ import pywikibot
 from pywikibot import pagegenerators
 import re
 import sys
+import random
 
 class AwsBot:
     def __init__(self):
@@ -135,7 +136,6 @@ class AwsBot:
                 is_last_section = True
 
             if is_last_section:
-                # تم إضافة فاصل \n\n لضمان فصل Header عن الـ bullets
                 ref_section = "\n== المراجع ==\n{{مراجع}}\n"
                 new_section_content = f"{new_section_content}{ref_section}"
                 summary_text = f"بوت: إضافة قسم انظر أيضًا ({len(valid_candidates)} مقترحة) وتجهيز قسم المراجع"
@@ -172,5 +172,15 @@ class AwsBot:
             pywikibot.output("Please specify a generator")
 
 if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        modes = [
+            ['-random'],
+            ['-newpages'],
+            ['-cat:بذرة']
+        ]
+        selected = random.choice(modes)
+        sys.argv.extend(selected)
+        pywikibot.output(f">> Auto-selected mode: {selected[0]}")
+        
     bot = AwsBot()
     bot.run()
