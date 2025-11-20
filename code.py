@@ -148,6 +148,7 @@ class AwsBot:
             return summary_text
 
     def treat_page(self, page):
+        if page.namespace() != 0: return
         pywikibot.output(f"\nChecking: {page.title(as_link=True)}...")
         if page.isRedirectPage() or page.isDisambig(): return
 
