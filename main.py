@@ -148,7 +148,6 @@ class AwsBot:
             return summary_text
 
     def treat_page(self, page):
-        if page.namespace() != 0: return
         pywikibot.output(f"\nChecking: {page.title(as_link=True)}...")
         if page.isRedirectPage() or page.isDisambig(): return
 
@@ -174,14 +173,15 @@ class AwsBot:
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
+        # هنا التغيير الجذري: إضافة -ns:0 لكل الأوضاع
         modes = [
-            ['-random'],
-            ['-newpages'],
-            ['-cat:بذرة']
+            ['-random', '-ns:0'],
+            ['-newpages', '-ns:0'],
+            ['-cat:بذرة', '-ns:0']
         ]
         selected = random.choice(modes)
         sys.argv.extend(selected)
-        pywikibot.output(f">> Auto-selected mode: {selected[0]}")
+        pywikibot.output(f">> Auto-selected mode: {selected[0]} (Articles Only)")
         
     bot = AwsBot()
     bot.run()
